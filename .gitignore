@@ -1,0 +1,12 @@
+# IDE and Agent configurations
+.codex/
+.idea/
+.vs/
+.vscode/
+
+# Project artifacts
+.cache/
+.temp/
+build/
+out/
+tests/
