@@ -1,0 +1,55 @@
+/*
+ * File        helloworld.ul
+ * About       A simple example written in U language.
+ * Author      ZirconiumTian
+ */
+
+using "sysio.umod";
+using "string.umod";
+using "error.umod";
+
+fn ask_for_age(age: &int32): bool
+{
+	input: string = getln();
+	age = 0;
+	failed age = string_to_int(input) {	
+		return false;
+	}
+	return true;
+}
+
+fn main(): int32
+{
+	name: string;
+	puts("Hi, there! What is your name? ");
+	name = getln();
+	puts("Could you please tell me your age? ");
+	age: int32;
+	type_times: int32 = 0;
+	while true {
+		if ask_for_age(age) break;
+		++type_times;
+		puts("Type integer please! Try again: ");
+		if type_times >= 5 {
+			putln("All right... Anyway, have a nice day!");
+			return 0;
+		}
+	}
+	putln(f"Oh, hello {name}! Thank you for running this example.")
+	if age in 0, 18 {
+		putln("Let the U language accompany you as you grow.");
+		putln("Master practical and exciting skills.");
+	}
+	else if age > 18 {
+		putln("Let the U language accompany you as you grow.");
+		putln("Master practical and exciting skills.");
+	}
+
+	// age < 0 also works...
+	else if age in none, -1 {
+		putln("Negative numbers? Seriously? ");
+		putln("Watch it, or I’ll trigger an overflow and leave");
+		putln("you stuck for a few million years!");
+	}
+	return 0;
+}

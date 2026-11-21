@@ -1,0 +1,13 @@
+/*
+ * File        hello.ul
+ * About       Hello, world! in U language.
+ * Author      ZirconiumTian
+ */
+
+using "sysio.umod";
+
+fn main(): int32
+{
+	putln("hello, world!");
+	return 0;
+}
