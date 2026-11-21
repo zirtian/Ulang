@@ -6,7 +6,7 @@ Ulang 是 Uranium 编程语言的语法解析库, 用于生成 token 流和语�
 
 ## 关于 U 语言
 
-Uranium 编程语言简称 U 语言, 通用名称 ulang, 属于轮动开放软件 WROSS 计划的项目之一。关于 U 语言, 请期待后续完善的 Uranium 语言语法设计和 Uranium 语言设计文档。
+Uranium 编程语言简称 U 语言, 通用名称 ulang, 属于轮动开放软件 WROSS 计划的项目之一。关于 U 语言, 敬请期待 Uranium 语言设计文档, 或请参阅最新版 [U 编程语言语法规范文档](./syntax-u26.zh.md)。
 
 本仓库 Ulang 仅为 U 语言的语法解析库, 可以用来制作适用于 U 语言的编译器等。
 
