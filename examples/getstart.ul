@@ -1,5 +1,5 @@
 /*
- * File        helloworld.ul
+ * File        getstart.ul
  * About       A simple example written in U language.
  * Author      ZirconiumTian
  */
@@ -35,7 +35,7 @@ fn main(): int32
 			return 0;
 		}
 	}
-	putln(f"Oh, hello {name}! Thank you for running this example.")
+	putln(f"Oh, hello {name}! Thank you for running this example.");
 	if age in 0, 18 {
 		putln("Let the U language accompany you as you grow.");
 		putln("Master practical and exciting skills.");
