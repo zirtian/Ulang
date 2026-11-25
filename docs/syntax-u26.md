@@ -33,7 +33,7 @@ A token stream represents the source code as a flat sequence.
 
 ### I. Identifiers
 
-An **identifier**, abbreviated Id, is a lexical element used to name entities such as variables, functions, and structure instances. The ASCII characters used in identifiers are uppercase and lowercase letters, decimal digits, and the underscore (`A–Za–z0–9_`). Consider the following examples.
+An **identifier**, abbreviated `Id`, is a lexical element used to name entities such as variables, functions, and structure instances. The ASCII characters used in identifiers are uppercase and lowercase letters, decimal digits, and the underscore (`A–Za–z0–9_`). Consider the following examples.
 
 - `variable_name`
 - `Tokenizer`
@@ -57,7 +57,7 @@ Identifiers may also contain other fullwidth or halfwidth Unicode characters. Op
 
 ### II. Keywords
 
-A **keyword**, abbreviated Kwd, is a special lexical element formed from the same character set as an identifier. Each keyword has a specific role in its context.
+A **keyword**, abbreviated `Kwd`, is a special lexical element formed from the same character set as an identifier. Each keyword has a specific role in its context.
 
 | Keyword | Meaning |
 | :--- | :--- |
@@ -88,7 +88,7 @@ A **keyword**, abbreviated Kwd, is a special lexical element formed from the sam
 
 ### III. Type Names
 
-A **type name**, abbreviated Type, is a lexical element that names a data type. Type names use the same character set as identifiers.
+A **type name**, abbreviated `Type`, is a lexical element that names a data type. Type names use the same character set as identifiers.
 
 | Type name | Meaning |
 | :--- | :--- |
@@ -110,11 +110,11 @@ A **type name**, abbreviated Type, is a lexical element that names a data type. 
 
 ### IV. Operators
 
-An **operator**, abbreviated Op, is a lexical element that specifies the operation in an operator expression. U classifies operators by the number of operands they take.
+An **operator**, abbreviated `Op`, is a lexical element that specifies the operation in an operator expression. U classifies operators by the number of operands they take.
 
 #### 1. Unary Operators
 
-A **unary operator**, abbreviated Op.Unary, generally has the form `Op Expr`.
+A **unary operator**, abbreviated `Op.Unary`, generally has the form `Op Expr`.
 
 U26 defines the following unary operators.
 
@@ -131,7 +131,7 @@ U26 defines the following unary operators.
 
 #### 2. Binary Operators
 
-A **binary operator**, abbreviated Op.Binary, generally has the form `Expr Op Expr`.
+A **binary operator**, abbreviated `Op.Binary`, generally has the form `Expr Op Expr`.
 
 U26 defines the following binary operators.
 
@@ -161,7 +161,7 @@ All six comparison operators produce a `bool` result.
 
 #### 3. Ternary Operators
 
-A **ternary operator**, abbreviated Op.Ternary, generally has the form `Expr Op Expr Op Expr`.
+A **ternary operator**, abbreviated `Op.Ternary`, generally has the form `Expr Op Expr Op Expr`.
 
 U26 defines the following ternary operators.
 
@@ -172,7 +172,7 @@ U26 defines the following ternary operators.
 
 ### V. Delimiters
 
-A **delimiter**, abbreviated Deli, is a lexical element that marks boundaries between or within statements and expressions.
+A **delimiter**, abbreviated `Deli`, is a lexical element that marks boundaries between or within statements and expressions.
 
 | Delimiter | Use |
 | :--- | :--- |
@@ -185,11 +185,11 @@ A **delimiter**, abbreviated Deli, is a lexical element that marks boundaries be
 
 ### VI. Literals
 
-A **literal**, abbreviated Lit, is a lexical element that directly represents a value known at compile time.
+A **literal**, abbreviated `Lit`, is a lexical element that directly represents a value known at compile time.
 
 #### 1. Integer Literals
 
-An **integer literal**, abbreviated Lit.Int, represents an integer value and can be used with a type whose name begins with `int` or `uint`. See [Type Names](#iii-type-names).
+An **integer literal**, abbreviated `Lit.Int`, represents an integer value and can be used with a type whose name begins with `int` or `uint`. See [Type Names](#iii-type-names).
 
 U supports integer literals in bases 2, 8, 10, and 16. Each base has a distinct lexical form.
 
@@ -204,7 +204,7 @@ Letters in binary and hexadecimal literals are case-insensitive. Both `0B0010` a
 
 #### 2. Floating-Point Literals
 
-A **floating-point literal**, abbreviated Lit.Float, represents a floating-point value and can be used with `float32` or `float64`.
+A **floating-point literal**, abbreviated `Lit.Float`, represents a floating-point value and can be used with `float32` or `float64`.
 
 Floating-point literals use decimal notation with an ASCII period as the decimal point. `3.141592` and `0.125` are valid examples.
 
@@ -217,7 +217,7 @@ The period cannot be the first or last character, so `.231` and `7632.` are inva
 
 #### 3. Character Literals
 
-A **character literal**, abbreviated Lit.Char, represents a character value. It can be used with `char` or `rune`, or with their underlying types `uint8` and `uint32`.
+A **character literal**, abbreviated `Lit.Char`, represents a character value. It can be used with `char` or `rune`, or with their underlying types `uint8` and `uint32`.
 
 Single quotes enclose character literals.
 
@@ -235,7 +235,7 @@ Use `rune` for this example. Its character value is outside the range of `char`.
 
 #### 4. String Literals
 
-A **string literal**, abbreviated Lit.Str, represents a string value and can be used with `string` or `string32`.
+A **string literal**, abbreviated `Lit.Str`, represents a string value and can be used with `string` or `string32`.
 
 Double quotes enclose ordinary string literals.
 
@@ -336,7 +336,7 @@ In literals that process escapes, escape a quote that matches the opening quote.
 
 ### VII. Comments
 
-A **comment**, abbreviated Com, annotates source code. The compiler normally treats comments as whitespace. A tool can preserve comments as tokens, for example when an IDE plugin reads temporary configuration from a comment. Comments do not affect program execution.
+A **comment**, abbreviated `Com`, annotates source code. The compiler normally treats comments as whitespace. A tool can preserve comments as tokens, for example when an IDE plugin reads temporary configuration from a comment. Comments do not affect program execution.
 
 U supports line comments and block comments.
 
@@ -358,11 +358,11 @@ A syntax tree represents the hierarchical structure of the source code.
 
 ### I. Expressions
 
-An **expression**, abbreviated Expr, represents a value or an operation. An expression can contain subexpressions, such as the arguments of a call or the operands of an operator.
+An **expression**, abbreviated `Expr`, represents a value or an operation. An expression can contain subexpressions, such as the arguments of a call or the operands of an operator.
 
 #### 1. Literal Expressions
 
-A **literal expression**, abbreviated Expr.Lit, consists of a [literal](#vi-literals). It directly represents a value written in the source code and known at compile time.
+A **literal expression**, abbreviated `Expr.Lit`, consists of a [literal](#vi-literals). It directly represents a value written in the source code and known at compile time.
 
 ```ul
 3.141592
@@ -374,7 +374,7 @@ These are literal expressions.
 
 #### 2. Identifier Expressions
 
-An **identifier expression**, abbreviated Expr.Id, consists of an identifier that refers to the corresponding entity, such as a variable, constant, structure, or function.
+An **identifier expression**, abbreviated `Expr.Id`, consists of an identifier that refers to the corresponding entity, such as a variable, constant, structure, or function.
 
 ```ul
 function
@@ -385,11 +385,11 @@ These are identifier expressions.
 
 #### 3. Atomic Expressions
 
-An **atomic expression**, abbreviated Expr.Atom, is a basic form used to build more complex expressions. Literal expressions and identifier expressions are atomic expressions.
+An **atomic expression**, abbreviated `Expr.Atom`, is a basic form used to build more complex expressions. Literal expressions and identifier expressions are atomic expressions.
 
 #### 4. Operator Expressions
 
-An **operator expression**, abbreviated Expr.Op, consists of an operator and its operands. An operand can itself be an expression. The kind of operation determines whether it produces a value and what type that value has.
+An **operator expression**, abbreviated `Expr.Op`, consists of an operator and its operands. An operand can itself be an expression. The kind of operation determines whether it produces a value and what type that value has.
 
 ##### 4.1. Arithmetic
 
@@ -445,7 +445,7 @@ Assignment operators appear between two operands. Simple assignment uses `=`. Co
 
 #### 5. Call Expressions
 
-A **call expression**, abbreviated Expr.Call, consists of a callee followed by an argument list. Parentheses enclose the argument list, which can be empty.
+A **call expression**, abbreviated `Expr.Call`, consists of a callee followed by an argument list. Parentheses enclose the argument list, which can be empty.
 
 | Call expression | Meaning |
 | :--- | :--- |
@@ -454,11 +454,11 @@ A **call expression**, abbreviated Expr.Call, consists of a callee followed by a
 
 #### 6. Portable Function Expressions
 
-A **portable function expression**, abbreviated Expr.PtFunc, consists of `fn`, a parameter list, and a block statement as the function body. A return type annotation can follow the parameter list.
+A **portable function expression**, abbreviated `Expr.PtFunc`, consists of `fn`, a parameter list, and a block statement as the function body. A return type annotation can follow the parameter list.
 
 ```ul
 fn(arg: int32): int32 {
-	return arg + 1;
+        return arg + 1;
 }
 ```
 
@@ -466,15 +466,15 @@ This portable function expression produces a value of type `fn(int32): int32`.
 
 ### II. Statements
 
-A **statement**, abbreviated Stmt, is a syntactic unit of a program.
+A **statement**, abbreviated `Stmt`, is a syntactic unit of a program.
 
 #### 1. Block Statements
 
-A **block statement**, abbreviated Stmt.Block, is a brace-enclosed sequence of statements. A block can contain other blocks.
+A **block statement**, abbreviated `Stmt.Block`, is a brace-enclosed sequence of statements. A block can contain other blocks.
 
 #### 2. Expression Statements
 
-An **expression statement**, abbreviated Stmt.Expr, consists of an expression followed by a semicolon. A standalone function call is one example.
+An **expression statement**, abbreviated `Stmt.Expr`, consists of an expression followed by a semicolon. A standalone function call is one example.
 
 | Example | Statement kind | Expression structure |
 | :--- | :--- | :--- |
@@ -484,11 +484,11 @@ An **expression statement**, abbreviated Stmt.Expr, consists of an expression fo
 
 #### 3. Declaration Statements
 
-A **declaration statement**, abbreviated Stmt.Decl, introduces a name and specifies its type or signature. A data declaration can include an initializer after `=`, in which case it is a definition statement. See [Definition Statements](#4-definition-statements).
+A **declaration statement**, abbreviated `Stmt.Decl`, introduces a name and specifies its type or signature. A data declaration can include an initializer after `=`, in which case it is a definition statement. See [Definition Statements](#4-definition-statements).
 
 ##### 3.1. Data Declarations
 
-A **data declaration**, abbreviated Stmt.Decl.Data, generally has the form `Id: Type;`.
+A **data declaration**, abbreviated `Stmt.Decl.Data`, generally has the form `Id: Type;`.
 
 ```ul
 age: int32;
@@ -534,7 +534,7 @@ See [Portable Function Declarations](#33-portable-function-declarations) for fun
 
 ##### 3.2. Function Declarations
 
-A **function declaration**, abbreviated Stmt.Decl.Func, has the form `fn Id(Args...): Type;` for a general function. A parameter can be written using its type alone. Omit `: Type` if the function returns no value.
+A **function declaration**, abbreviated `Stmt.Decl.Func`, has the form `fn Id(Args...): Type;` for a general function. A parameter can be written using its type alone. Omit `: Type` if the function returns no value.
 
 ```ul
 fn ask_for_age(): int32;
@@ -557,7 +557,7 @@ fn sum(int32, int32): int32;
 
 ##### 3.3. Portable Function Declarations
 
-A **portable function declaration**, abbreviated Stmt.Decl.PtFunc, declares data of a function type, such as `portable: (fn(int32): int32);`. In a function type, the parameter list contains only types. The return type annotation can be omitted for a function with no return value.
+A **portable function declaration**, abbreviated `Stmt.Decl.PtFunc`, declares data of a function type, such as `portable: (fn(int32): int32);`. In a function type, the parameter list contains only types. The return type annotation can be omitted for a function with no return value.
 
 ```ul
 portable: (fn(int32): int32);
@@ -568,7 +568,7 @@ The type of `portable` takes one `int32` parameter and returns an `int32`. The t
 
 ##### 3.4. Structure Declarations
 
-A **structure declaration**, abbreviated Stmt.Decl.Struct, introduces a structure name. A forward declaration has the form `struct Id;`. The structure definition supplies the member list.
+A **structure declaration**, abbreviated `Stmt.Decl.Struct`, introduces a structure name. A forward declaration has the form `struct Id;`. The structure definition supplies the member list.
 
 ```ul
 struct Position;
@@ -576,7 +576,7 @@ struct Position;
 
 ##### 3.5. Structure Method Declarations
 
-A **structure method declaration**, abbreviated Stmt.Decl.Method, appears outside the structure body and has the form `fn Id(Args...) in Structure: Type;`. A structure method belongs to the named structure and otherwise follows the syntax of a function declaration.
+A **structure method declaration**, abbreviated `Stmt.Decl.Method`, appears outside the structure body and has the form `fn Id(Args...) in Structure: Type;`. A structure method belongs to the named structure and otherwise follows the syntax of a function declaration.
 
 ```ul
 fn origin_index() in Position: int32;
@@ -584,11 +584,11 @@ fn origin_index() in Position: int32;
 
 #### 4. Definition Statements
 
-A **definition statement**, abbreviated Stmt.Def, declares and defines an entity. It can define a variable, constant, structure, or function.
+A **definition statement**, abbreviated `Stmt.Def`, declares and defines an entity. It can define a variable, constant, structure, or function.
 
 ##### 4.1. Data Definitions
 
-A **data definition**, abbreviated Stmt.Def.Data, generally has the form `Id: Type = Expr;`, where `Expr` is the initializer. Extend the form described in [Data Declarations](#31-data-declarations) by adding `=` and an initializer before the final semicolon.
+A **data definition**, abbreviated `Stmt.Def.Data`, generally has the form `Id: Type = Expr;`, where `Expr` is the initializer. Extend the form described in [Data Declarations](#31-data-declarations) by adding `=` and an initializer before the final semicolon.
 
 ```ul
 age: int32 = 17;
@@ -606,7 +606,7 @@ message32: string32 = u"你好";
 
 ##### 4.2. Function Definitions
 
-A **function definition**, abbreviated Stmt.Def.Func, has the form `fn Id(Args...): Type { ... }` for a general function. Each parameter has the form `Id: Type`, as in a data declaration.
+A **function definition**, abbreviated `Stmt.Def.Func`, has the form `fn Id(Args...): Type { ... }` for a general function. Each parameter has the form `Id: Type`, as in a data declaration.
 
 ```ul
 fn find_char_in_string(target: char, from: string): bool {
@@ -623,7 +623,7 @@ For a function that returns no value, write `none` or omit the return type annot
 
 ##### 4.3. Portable Function Definitions
 
-A **portable function definition**, abbreviated Stmt.Def.PtFunc, uses a portable function expression as the initializer for data of a function type. A portable function expression can also be assigned after the declaration with `Id = Expr;`.
+A **portable function definition**, abbreviated `Stmt.Def.PtFunc`, uses a portable function expression as the initializer for data of a function type. A portable function expression can also be assigned after the declaration with `Id = Expr;`.
 
 ```ul
 portable: (fn(int32): int32);
@@ -656,7 +656,7 @@ In this example, `apply(32, operation(32))` is invalid because `operation(32)` h
 
 ##### 4.4. Structure Definitions
 
-A **structure definition**, abbreviated Stmt.Def.Struct, has the form `struct Id { ... };`. The braces enclose data members only. A data member can have a function type.
+A **structure definition**, abbreviated `Stmt.Def.Struct`, has the form `struct Id { ... };`. The braces enclose data members only. A data member can have a function type.
 
 A data member can have an initializer. In the following example, `adjust` is a data member that holds a portable function value.
 
@@ -680,7 +680,7 @@ position = {none, 17, none};
 
 ##### 4.5. Structure Method Definitions
 
-A **structure method definition**, abbreviated Stmt.Def.Method, appears outside the structure body and has the form `fn Id(Args...) in Structure: Type { ... }`.
+A **structure method definition**, abbreviated `Stmt.Def.Method`, appears outside the structure body and has the form `fn Id(Args...) in Structure: Type { ... }`.
 
 ```ul
 fn origin_index() in Position: int32 {
@@ -690,7 +690,7 @@ fn origin_index() in Position: int32 {
 
 #### 5. Branching Statements
 
-A **branching statement**, abbreviated Stmt.Branch, selects a branch based on a condition or match.
+A **branching statement**, abbreviated `Stmt.Branch`, selects a branch based on a condition or match.
 
 ##### 5.1. If-Else Statements
 
@@ -756,7 +756,7 @@ age >= 18 ? "adult" : "teen"
 
 #### 6. Loop Statements
 
-A **loop statement**, abbreviated Stmt.Loop, repeats its body. The body can be a block or a single statement.
+A **loop statement**, abbreviated `Stmt.Loop`, repeats its body. The body can be a block or a single statement.
 
 ##### 6.1. For Statements
 
@@ -806,25 +806,25 @@ while ready do();
 
 #### 7. Jump Statements
 
-A **jump statement**, abbreviated Stmt.Jump, exits a loop, advances to the next iteration, or returns to the caller.
+A **jump statement**, abbreviated `Stmt.Jump`, exits a loop, advances to the next iteration, or returns to the caller.
 
 ##### 7.1. Break Statements
 
-A **break statement**, abbreviated Stmt.Jump.Brk, has the form `break;`. It appears in a block within the body of a `while` or `for` loop and exits that loop.
+A **break statement**, abbreviated `Stmt.Jump.Brk`, has the form `break;`. It appears in a block within the body of a `while` or `for` loop and exits that loop.
 
 ```ul
 while true {
-	data.append(read_from_user());
-	if data.count > max_capacity {
-		putln("At max capacity!!!");
-		break;
-	}
+        data.append(read_from_user());
+        if data.count > max_capacity {
+                putln("At max capacity!!!");
+                break;
+        }
 }
 ```
 
 ##### 7.2. Continue Statements
 
-A **continue statement**, abbreviated Stmt.Jump.Cont, has the form `continue;`. It can appear in a loop body and ends the current iteration.
+A **continue statement**, abbreviated `Stmt.Jump.Cont`, has the form `continue;`. It can appear in a loop body and ends the current iteration.
 
 ```ul
 for item in items {
@@ -840,7 +840,7 @@ for item in items {
 
 ##### 7.3. Return Statements
 
-A **return statement**, abbreviated Stmt.Jump.Ret, has the form `return Expr;` in a function or method that returns a value. A function or method with no return value can use `return;`.
+A **return statement**, abbreviated `Stmt.Jump.Ret`, has the form `return Expr;` in a function or method that returns a value. A function or method with no return value can use `return;`.
 
 ```ul
 fn print_when_ready(ready: bool) {
@@ -853,7 +853,7 @@ fn print_when_ready(ready: bool) {
 
 #### 8. Error Handling Statements
 
-An **error handling statement**, abbreviated Stmt.Error, can be a `report` statement that issues an error report or a `catch` recovery statement that handles one.
+An **error handling statement**, abbreviated `Stmt.Error`, can be a `report` statement that issues an error report or a `catch` recovery statement that handles one.
 
 ##### 8.1. Report Statements
 
@@ -867,7 +867,7 @@ fn read() {
 
 ##### 8.2. Catch Recovery Statements
 
-A `catch` statement consists of an error binding specification, a monitored expression (ListenExpr), and a block statement that provides the recovery measures. The monitored expression can be a call expression (Expr.Call) or an operator expression (Expr.Op) containing a call expression.
+A `catch` statement consists of an error binding specification, a monitored expression (ListenExpr), and a block statement that provides the recovery measures. The monitored expression can be a call expression (`Expr.Call`) or an operator expression (`Expr.Op`) containing a call expression.
 
 ```
 catch Id: Type in ListenExpr Stmt.Block
