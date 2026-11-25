@@ -2,7 +2,9 @@
 
 [→ 简体中文版](syntax-u26.zh.md)
 
-The U26 Syntax Specification, formally the **Lexical and Syntactic Specification for the Uranium Programming Language (U26)**, defines the lexical and syntactic structure of source code in Uranium (U) under the U26 standard. It also specifies how the compiler reports lexical and syntactic errors. The two parts, **Lexical Structure** and **Syntax**, describe the expected output of the lexer and parser, respectively.<br>[→ 简体中文版](syntax-u26.zh.md)
+The U26 Syntax Specification,
+
+formally the **Lexical and Syntactic Specification for the Uranium Programming Language (U26)**, defines the lexical and syntactic structure of source code in Uranium (U) under the U26 standard. It also specifies how the compiler reports lexical and syntactic errors. The two parts, **Lexical Structure** and **Syntax**, describe the expected output of the lexer and parser, respectively.
 
 ## Contributors
 
@@ -49,7 +51,9 @@ Identifiers are case-sensitive. `Function` and `function` are distinct identifie
 Identifiers may also contain other fullwidth or halfwidth Unicode characters. Operating systems with different locale settings may use different default file encodings, so ASCII characters are recommended for identifiers.
 
 > **Lexical Tip to Emit**<br>
-> `Tip: Using ASCII characters for identifiers is recommended.`
+> ```
+> Tip: Using ASCII characters for identifiers is recommended.
+> ```
 
 ### II. Keywords
 
@@ -305,6 +309,13 @@ urf"(Project Information:
 
 The result is a multiline interpolated string encoded in UTF-32.
 
+> **Lexer Guidance**<br>
+> When an unrecognized prefix appears before a quoted string, as in `a"String demo"`, emit two tokens, `Id(a)` and `Lit.Str("String demo")`. Treat a sequence of letters as a string prefix only if it consists entirely of `u`, `f`, and `r` and immediately precedes the opening double quote. For a character literal, the `u` prefix immediately precedes the opening single quote.
+> ```ul
+> urf "(Raw UTF-32 Format String)"
+> ```
+> The space between `urf` and the opening quote separates the input into `Id(urf)` and `Lit.Str("(Raw UTF-32 Format String)")`.
+
 #### 5. Escape Sequences
 
 In character literals and ordinary string literals, an ASCII backtick (U+0060) introduces an escape sequence. Raw string content preserves these characters as written.
@@ -498,6 +509,7 @@ These statements declare variables of type `int32` and `string`, respectively. T
 | `@Type` | A read-only view of a value of type `Type`. |
 | `->Type` | A pointer to an instance of `Type`. |
 | `->Type!` | A pointer to a read-only instance of `Type`. |
+| `->Type[]` | A pointer to a dynamic array with elements of type `Type`. |
 | `&Type!` | A reference to a read-only value of type `Type`. This has similar properties to a read-only view. |
 | `Type[][]` | A two-dimensional array with elements of type `Type`. |
 
@@ -506,11 +518,19 @@ Parentheses group the type and its qualifiers to clarify the order in which the 
 | Type | Meaning |
 | :--- | :--- |
 | `(->Type)!` | A read-only pointer to an instance of `Type`. |
+| `(->Type)[]` | A dynamic array of pointers to instances of `Type`. |
 | `@->Type` | A read-only view of a pointer to `Type`. |
 | `->&Type` | A pointer to a reference to `Type`. |
 | `(fn(int32): int32)` | The type of a function that takes one `int32` parameter and returns an `int32` value. |
 
 See [Portable Function Declarations](#33-portable-function-declarations) for function types.
+
+> **Syntax Diagnostic**<br>
+> For `->int32[]`, the compiler may emit the following warning and tip.
+> ```
+> Warning: `->int32[]` is parsed as a pointer to a dynamic array of `int32`.
+> Tip: Write `->(int32[])` to make the grouping explicit, or `(->int32)[]` if you meant a dynamic array of pointers.
+> ```
 
 ##### 3.2. Function Declarations
 
@@ -849,7 +869,7 @@ fn read() {
 
 A `catch` statement consists of an error binding specification, a monitored expression (ListenExpr), and a block statement that provides the recovery measures. The monitored expression can be a call expression (Expr.Call) or an operator expression (Expr.Op) containing a call expression.
 
-```text
+```
 catch Id: Type in ListenExpr Stmt.Block
 catch none in ListenExpr Stmt.Block
 ```

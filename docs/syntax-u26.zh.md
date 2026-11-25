@@ -1,8 +1,10 @@
-# 关于 U26 语法文档
+# 关于 U26 语法规范
 
 [→ English Version](syntax-u26.md)
 
-U26 语法文档, 全称 **Uranium 编程语言词法和语法规范文档 (U26)**, 是适用于 Uranium 编程语言 (后文简写为 U 语言) 在 U26 标准下的词法和语法规范文档, 规定了在 U26 标准下 U 语言源代码的词法组织形式和语法组织形式, 并指示了 U 语言编译器在相关词法和语法错误上的报告规则。文档共规定了 **词法** 和 **语法** 两个部分, 指示了在 U26 标准下 U 语言切词器和语法分析器预期的工作效果。
+U26 语法规范, the U26 syntax specification,
+
+全称为 **Uranium 编程语言词法和语法规范文档 (U26)**, 是适用于 Uranium 编程语言 (后文简写为 U 语言) 在 U26 标准下的词法和语法规范文档, 规定了在 U26 标准下 U 语言源代码的词法组织形式和语法组织形式, 并指示了 U 语言编译器在相关词法和语法错误上的报告规则。文档共规定了 **词法** 和 **语法** 两个部分, 指示了在 U26 标准下 U 语言切词器和语法分析器预期的工作效果。
 
 ## 制作信息
 
@@ -49,7 +51,9 @@ U 语言的标识符是大小写敏感的。`Function` 和 `function` 是不同�
 U 语言的标识符并不阻止您使用其它全角或半角 Unicode 字符。不过鉴于应用不同语言地区设置的不同操作系统平台, 对于文件编码的默认处理方式可能有偏差, 因此在标识符中使用 ASCII 字符之外的 Unicode 字符是 **不推荐** 的。
 
 > **应报告的词法建议**:<br>
-> `Tip: Using ASCII characters for identifiers is recommended.`
+> ```
+> Tip: Using ASCII characters for identifiers is recommended.
+> ```
 
 ### II. 关键字
 
@@ -305,6 +309,13 @@ urf"(Project Information:
 
 就以 UTF-32 编码模式存储了一个多行带插值的字符串数据。
 
+> **Lexer 流程建议**:<br>
+> 对于一些未知的字符串字面量签名 `a"String demo"`, 应该拆分为 `Id` `Lit.Str("String demo")` 共 2 个 Token。在 Lexer 读取字母的时候, 除非连续读取仅包含 `u` `f` `r` 的字母序列, 并紧挨着遇上双引号 (对于字符字面量是单引号) 作为签名。
+> ```
+> urf "(Raw UTF-32 Format String)"
+> ```
+> 上述的符合签名规则的字母和双引号间隔一个空白字符, 所以拆分为 `Id(urf)` `Lit.Str("(Raw UTF-32 Format String)")`。
+
 #### 5. 转义序列
 
 字符字面量和普通字符串字面量使用半角反引号 (U+0060) 引出转义序列。原始字符串的正文保留这些字符的原样。
@@ -498,6 +509,7 @@ name: string;
 | `@Type` | 对 `Type` 类型数据的只读视图。 |
 | `->Type` | 对 `Type` 类型实例的一个指针。 |
 | `->Type!` | 对只读的 `Type` 类实例的一个指针。 |
+| `->Type[]` | 指向一个元素类型为 `Type` 的动态数组的一个指针。 |
 | `&Type!` | 对一个只读的 `Type` 类数据的引用, 效果和 `@` 差不多， 实际有所差异。 |
 | `Type[][]` | 元素为 `Type` 的二维数组。 |
 
@@ -506,11 +518,19 @@ name: string;
 | 类型 | 含义 |
 | :--- | :--- |
 | `(->Type)!` | 一个指向 `Type` 类实例的只读指针。 |
+| `(->Type)[]` | 指向一个元素类型为指向 `Type` 的指针的的动态数组。 |
 | `@->Type` | 一个对 `Type` 类指针的只读视图。 |
 | `->&Type` | 指向一个 `Type` 类引用的指针。 |
 | `(fn(int32): int32)` | 函数类型, 函数为接收一个 `int32` 参数的返回 `int32` 数据的函数。 |
 
 上表提到的函数类型, 详见下方 [便携式函数声明](#33-便携式函数声明)。
+
+> **应报告的语法建议**:<br>
+对于写法 `->int32[]` 可以给出下列语法警告和建议: 
+> ```
+> Warning: `->int32[]` is parsed as a pointer to a dynamic array of `int32`.
+> Tip: Write `->(int32[])` to make the grouping explicit, or `(->int32)[]` if you meant a dynamic array of pointers.
+> ```
 
 ##### 3.2. 函数声明
 
@@ -849,7 +869,7 @@ fn read() {
 
 `catch` 语句由错误值绑定说明、监听表达式 (ListenExpr) 和作为补救措施的块语句组成。监听表达式可以是调用表达式 (Expr.Call), 也可以是包含调用表达式的运算表达式 (Expr.Op)。
 
-```text
+```
 catch Id: Type in ListenExpr Stmt.Block
 catch none in ListenExpr Stmt.Block
 ```
