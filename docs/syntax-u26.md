@@ -458,7 +458,7 @@ A **portable function expression**, abbreviated `Expr.PtFunc`, consists of `fn`,
 
 ```ul
 fn(arg: int32): int32 {
-        return arg + 1;
+	return arg + 1;
 }
 ```
 
@@ -610,12 +610,12 @@ A **function definition**, abbreviated `Stmt.Def.Func`, has the form `fn Id(Args
 
 ```ul
 fn find_char_in_string(target: char, from: string): bool {
-    for element in from {
-        if element == target {
-            return true;
-        }
-    }
-    return false;
+	for element in from {
+		if element == target {
+			return true;
+		}
+	}
+	return false;
 }
 ```
 
@@ -628,7 +628,7 @@ A **portable function definition**, abbreviated `Stmt.Def.PtFunc`, uses a portab
 ```ul
 portable: (fn(int32): int32);
 portable = fn(arg: int32): int32 {
-    return arg + 1;
+	return arg + 1;
 };
 
 notify: fn() = fn() {};
@@ -638,14 +638,14 @@ A general function can take or return a portable function. To pass a stored func
 
 ```ul
 fn apply(value: int32, operation: (fn(int32): int32)): int32 {
-    return operation(value);
+	return operation(value);
 }
 
 fn select_operation(): (fn(int32): int32) {
-    operation: (fn(int32): int32) = fn(arg: int32): int32 {
-        return arg + 1;
-    };
-    return operation;
+	operation: (fn(int32): int32) = fn(arg: int32): int32 {
+		return arg + 1;
+	};
+	return operation;
 }
 
 operation: (fn(int32): int32) = select_operation();
@@ -662,11 +662,11 @@ A data member can have an initializer. In the following example, `adjust` is a d
 
 ```ul
 struct Position {
-    row: int32;
-    column: int32 = 4;
-    adjust: (fn(int32): int32) = fn(arg: int32): int32 {
-        return arg + 1;
-    };
+	row: int32;
+	column: int32 = 4;
+	adjust: (fn(int32): int32) = fn(arg: int32): int32 {
+		return arg + 1;
+	};
 };
 ```
 
@@ -684,7 +684,7 @@ A **structure method definition**, abbreviated `Stmt.Def.Method`, appears outsid
 
 ```ul
 fn origin_index() in Position: int32 {
-    return 0;
+	return 0;
 }
 ```
 
@@ -698,11 +698,11 @@ After `if`, write a condition of type `bool` followed by a block or a single sta
 
 ```ul
 if score >= 90 {
-    excellent();
+	excellent();
 } else if score >= 60 {
-    pass();
+	pass();
 } else {
-    retry();
+	retry();
 }
 ```
 
@@ -721,9 +721,9 @@ The default branch is written `case none` and can appear at most once.
 
 ```ul
 switch answer {
-    case "yes" { accept(); },
-    case "no" { reject(); },
-    case none { retry(); },
+	case "yes" { accept(); },
+	case "no" { reject(); },
+	case none { retry(); },
 }
 ```
 
@@ -739,10 +739,10 @@ The following example uses `return` and `break` as branches.
 
 ```ul
 fn choose(yes: bool): string {
-    while true {
-        yes ? return "s" : break;
-    }
-    return "";
+	while true {
+		yes ? return "s" : break;
+	}
+	return "";
 }
 ```
 
@@ -764,7 +764,7 @@ A **loop statement**, abbreviated `Stmt.Loop`, repeats its body. The body can be
 
 ```ul
 for item in items {
-    use(item);
+	use(item);
 }
 ```
 
@@ -778,7 +778,7 @@ The three-part form is `for Init; Condition; Update` followed by the loop body. 
 
 ```ul
 for i: int32 = 0; i < 3; ++i {
-    use(i);
+	use(i);
 }
 ```
 
@@ -794,7 +794,7 @@ After `while`, write a condition of type `bool` followed by the loop body.
 
 ```ul
 while ready {
-    do();
+	do();
 }
 ```
 
@@ -814,11 +814,11 @@ A **break statement**, abbreviated `Stmt.Jump.Brk`, has the form `break;`. It ap
 
 ```ul
 while true {
-        data.append(read_from_user());
-        if data.count > max_capacity {
-                putln("At max capacity!!!");
-                break;
-        }
+	data.append(read_from_user());
+	if data.count > max_capacity {
+		putln("At max capacity!!!");
+		break;
+	}
 }
 ```
 
@@ -828,13 +828,13 @@ A **continue statement**, abbreviated `Stmt.Jump.Cont`, has the form `continue;`
 
 ```ul
 for item in items {
-    if item == stop_value {
-        break;
-    }
-    if item == skip_value {
-        continue;
-    }
-    use(item);
+	if item == stop_value {
+		break;
+	}
+	if item == skip_value {
+		continue;
+	}
+	use(item);
 }
 ```
 
@@ -844,10 +844,10 @@ A **return statement**, abbreviated `Stmt.Jump.Ret`, has the form `return Expr;`
 
 ```ul
 fn print_when_ready(ready: bool) {
-    if not ready {
-        return;
-    }
-    print_about();
+	if not ready {
+		return;
+	}
+	print_about();
 }
 ```
 
@@ -861,7 +861,7 @@ A report statement has the form `report Expr;`. The value of `Expr` is the repor
 
 ```ul
 fn read() {
-    report "Unable to read input.";
+	report "Unable to read input.";
 }
 ```
 
@@ -878,7 +878,7 @@ Both forms use `in` to introduce the monitored expression. The first form specif
 
 ```ul
 catch err: string in read() {
-    putln(err);
+	putln(err);
 }
 ```
 
@@ -886,7 +886,7 @@ The second form uses `none` to match error reports of any type and omit the erro
 
 ```ul
 catch none in read() {
-    retry();
+	retry();
 }
 ```
 
@@ -894,6 +894,6 @@ A monitored expression can also be an assignment expression containing a nested 
 
 ```ul
 catch err: string in age = parse(read_input()) {
-    putln(err);
+	putln(err);
 }
 ```

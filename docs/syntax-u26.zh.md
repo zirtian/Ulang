@@ -610,12 +610,12 @@ message32: string32 = u"你好";
 
 ```ul
 fn find_char_in_string(target: char, from: string): bool {
-    for element in from {
-        if element == target {
-            return true;
-        }
-    }
-    return false;
+	for element in from {
+		if element == target {
+			return true;
+		}
+	}
+	return false;
 }
 ```
 
@@ -628,7 +628,7 @@ fn find_char_in_string(target: char, from: string): bool {
 ```ul
 portable: (fn(int32): int32);
 portable = fn(arg: int32): int32 {
-    return arg + 1;
+	return arg + 1;
 };
 
 notify: fn() = fn() {};
@@ -638,14 +638,14 @@ notify: fn() = fn() {};
 
 ```ul
 fn apply(value: int32, operation: (fn(int32): int32)): int32 {
-    return operation(value);
+	return operation(value);
 }
 
 fn select_operation(): (fn(int32): int32) {
-    operation: (fn(int32): int32) = fn(arg: int32): int32 {
-        return arg + 1;
-    };
-    return operation;
+	operation: (fn(int32): int32) = fn(arg: int32): int32 {
+		return arg + 1;
+	};
+	return operation;
 }
 
 operation: (fn(int32): int32) = select_operation();
@@ -662,11 +662,11 @@ result: int32 = apply(32, operation);
 
 ```ul
 struct Position {
-    row: int32;
-    column: int32 = 4;
-    adjust: (fn(int32): int32) = fn(arg: int32): int32 {
-        return arg + 1;
-    };
+	row: int32;
+	column: int32 = 4;
+	adjust: (fn(int32): int32) = fn(arg: int32): int32 {
+		return arg + 1;
+	};
 };
 ```
 
@@ -684,7 +684,7 @@ position = {none, 17, none};
 
 ```ul
 fn origin_index() in Position: int32 {
-    return 0;
+	return 0;
 }
 ```
 
@@ -698,11 +698,11 @@ fn origin_index() in Position: int32 {
 
 ```ul
 if score >= 90 {
-    excellent();
+	excellent();
 } else if score >= 60 {
-    pass();
+	pass();
 } else {
-    retry();
+	retry();
 }
 ```
 
@@ -721,9 +721,9 @@ else retry();
 
 ```ul
 switch answer {
-    case "yes" { accept(); },
-    case "no" { reject(); },
-    case none { retry(); },
+	case "yes" { accept(); },
+	case "no" { reject(); },
+	case none { retry(); },
 }
 ```
 
@@ -739,10 +739,10 @@ ready ? start() : wait();
 
 ```ul
 fn choose(yes: bool): string {
-    while true {
-        yes ? return "s" : break;
-    }
-    return "";
+	while true {
+		yes ? return "s" : break;
+	}
+	return "";
 }
 ```
 
@@ -764,7 +764,7 @@ age >= 18 ? "adult" : "teen"
 
 ```ul
 for item in items {
-    use(item);
+	use(item);
 }
 ```
 
@@ -778,7 +778,7 @@ for item in items use(item);
 
 ```ul
 for i: int32 = 0; i < 3; ++i {
-    use(i);
+	use(i);
 }
 ```
 
@@ -794,7 +794,7 @@ for i: int32 = 0; i < 3; ++i use(i);
 
 ```ul
 while ready {
-    do();
+	do();
 }
 ```
 
@@ -828,13 +828,13 @@ while true {
 
 ```ul
 for item in items {
-    if item == stop_value {
-        break;
-    }
-    if item == skip_value {
-        continue;
-    }
-    use(item);
+	if item == stop_value {
+		break;
+	}
+	if item == skip_value {
+		continue;
+	}
+	use(item);
 }
 ```
 
@@ -844,10 +844,10 @@ for item in items {
 
 ```ul
 fn print_when_ready(ready: bool) {
-    if not ready {
-        return;
-    }
-    print_about();
+	if not ready {
+		return;
+	}
+	print_about();
 }
 ```
 
@@ -861,7 +861,7 @@ fn print_when_ready(ready: bool) {
 
 ```ul
 fn read() {
-    report "Unable to read input.";
+	report "Unable to read input.";
 }
 ```
 
@@ -878,7 +878,7 @@ catch none in ListenExpr Stmt.Block
 
 ```ul
 catch err: string in read() {
-    putln(err);
+	putln(err);
 }
 ```
 
@@ -886,7 +886,7 @@ catch err: string in read() {
 
 ```ul
 catch none in read() {
-    retry();
+	retry();
 }
 ```
 
@@ -894,6 +894,6 @@ catch none in read() {
 
 ```ul
 catch err: string in age = parse(read_input()) {
-    putln(err);
+	putln(err);
 }
 ```

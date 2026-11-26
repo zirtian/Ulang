@@ -236,13 +236,15 @@ struct Token {
  */
 class Lexer {
 private:
-	std::u32string_view source_content;
-	std::size_t source_length = 0;
+	std::u32string source_content;
 	std::size_t current_pos = 0;
 	std::uint32_t current_row = 1;
 	std::uint16_t current_column = 1;
 	bool ignore_comments = false; // Skip comments when true. Otherwise, emit comment tokens.
 	Token token_register; // Temporarily holds a token for internal use.
+
+	bool atEOF(size_t pos) const;
+	bool atEOF() const;
 
 	// Returns the char32_t at the specified position in the source.
 	// current() calls current(current_pos).
