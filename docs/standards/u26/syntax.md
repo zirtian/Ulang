@@ -1,6 +1,6 @@
 # About the U26 Syntax Specification
 
-[→ 简体中文版](syntax-u26.zh.md)
+[→ 简体中文版](syntax.zh.md)
 
 The U26 Syntax Specification,
 
@@ -17,7 +17,7 @@ Many people contributed to this specification. The following table records some 
 
 ## License
 
-This specification, including the language editions (`syntax-u26.*.md`) available in the [Ulang repository](https://github.com/zirtian/Ulang), is licensed under [Creative Commons Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/).
+This specification, including the language editions (`standards/u26/syntax.*.md`) available in the [Ulang repository's documentation page](https://github.com/zirtian/Ulang/tree/main/docs/), is licensed under [Creative Commons Attribution-NonCommercial 4.0 International](../../licenses/CC-BY-NC-4.0.txt).
 
 <br>
 

@@ -6,7 +6,7 @@ Ulang is a parsing library for the Uranium programming language, designed to pro
 
 ## About the U Language
 
-Uranium, or U for short, is also known as `ulang`. It is part of the WROSS open-source initiative. The Uranium language design documentation is forthcoming. For the language syntax, see the latest [Uranium Syntax Specification](docs/syntax-u26.md).
+Uranium, or U for short, is also known as `ulang`. It is part of the WROSS open-source initiative. The Uranium language design documentation is forthcoming. For the language syntax, see the latest [Syntax Specification for the Uranium Programming Language](docs/standards/u26/syntax.md).
 
 This repository contains Ulang, the parsing library for U. You can use it to build compilers and other tools for the language.
 

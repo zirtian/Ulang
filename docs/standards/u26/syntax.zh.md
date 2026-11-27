@@ -1,6 +1,6 @@
 # 关于 U26 语法规范
 
-[→ English Version](syntax-u26.md)
+[→ English Version](syntax.md)
 
 U26 语法规范, the U26 syntax specification,
 
@@ -17,7 +17,7 @@ U26 语法文档的编写离不开多方贡献。下表是手动记录的部分�
 
 ## 许可信息
 
-U26 语法文档的文本文件, 包括您通过 [Ulang 仓库](https://github.com/zirtian/Ulang) 访问的多语言版本 `syntax-u26.*.md` 文本文件, 遵循 [署名-非商业性使用 4.0 国际](https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hans)。
+U26 语法文档的文本文件, 包括您通过 [Ulang 仓库文档页](https://github.com/zirtian/Ulang/tree/main/docs) 访问的多语言版本 `standards/u26/syntax.*.md` 文本文件, 遵循 [署名-非商业性使用 4.0 国际](../../licenses/CC-BY-NC-4.0.txt)。
 
 <br>
 
@@ -33,7 +33,7 @@ Token 流是划分源代码单层级结构的数据表示类型。
 
 ### I. 标识符
 
-**标识符, Identifier**, 简写为 Id, 是 U 语言中用于指代变量、函数、结构体实例的词法元素。标识符应当由半角大小写英文字母、半角阿拉伯数字和下划线组成, 也就是 `A~Za~z0~9_`。对于下列标识符:
+**标识符, Identifier**, 简写为 `Id`, 是 U 语言中用于指代变量、函数、结构体实例的词法元素。标识符应当由半角大小写英文字母、半角阿拉伯数字和下划线组成, 也就是 `A~Za~z0~9_`。对于下列标识符:
 
 - `variable_name`
 - `Tokenizer`
@@ -57,7 +57,7 @@ U 语言的标识符并不阻止您使用其它全角或半角 Unicode 字符。
 
 ### II. 关键字
 
-**关键字, Keyword**, 简写为 Kwd, 是 U 语言中字符范围和标识符相同的一组特殊的词法元素。关键字在对应上下文中承担对应功能, 下表是 U 语言在 U26 标准下的关键字:
+**关键字, Keyword**, 简写为 `Kwd`, 是 U 语言中字符范围和标识符相同的一组特殊的词法元素。关键字在对应上下文中承担对应功能, 下表是 U 语言在 U26 标准下的关键字:
 
 | 关键字 | 含义 |
 | :--- | :--- |
@@ -88,7 +88,7 @@ U 语言的标识符并不阻止您使用其它全角或半角 Unicode 字符。
 
 ### III. 类型名
 
-**类型名, Typename**, 简写为 Type, 是 U 语言中字符范围和标识符相同的用于描述数据类型的一组词法元素。下表是 U 语言在 U26 标准下的类型名:
+**类型名, Typename**, 简写为 `Type`, 是 U 语言中字符范围和标识符相同的用于描述数据类型的一组词法元素。下表是 U 语言在 U26 标准下的类型名:
 
 | 类型名 | 含义 |
 | :--- | :--- |
@@ -110,11 +110,11 @@ U 语言的标识符并不阻止您使用其它全角或半角 Unicode 字符。
 
 ### IV. 运算符
 
-**运算符, Operator**, 简写为 Op, 是 U 语言中为运算表达式规定运算类型的词法元素。在 U 语言中, 运算符通过操作数的数量不同, 分为不同类型的运算符。
+**运算符, Operator**, 简写为 `Op`, 是 U 语言中为运算表达式规定运算类型的词法元素。在 U 语言中, 运算符通过操作数的数量不同, 分为不同类型的运算符。
 
 #### 1. 一元运算符
 
-**一元运算符, Unary Operator**, 简写为 Op.Unary, 通用格式: `Op Expr`。
+**一元运算符, Unary Operator**, 简写为 `Op.Unary`, 通用格式: `Op Expr`。
 
 U26 标准规定了下列一元运算符:
 
@@ -131,7 +131,7 @@ U26 标准规定了下列一元运算符:
 
 #### 2. 二元运算符
 
-**二元运算符, Binary Operator**, 简写为 Op.Binary。通用格式: `Expr Op Expr`。
+**二元运算符, Binary Operator**, 简写为 `Op.Binary`。通用格式: `Expr Op Expr`。
 
 U26 标准规定了下列二元运算符:
 
@@ -161,7 +161,7 @@ U26 标准规定了下列二元运算符:
 
 #### 3. 三元运算符
 
-**三元运算符, Ternary Operator**, 简写为 Op.Ternary, 通用格式: `Expr Op Expr Op Expr`。
+**三元运算符, Ternary Operator**, 简写为 `Op.Ternary`, 通用格式: `Expr Op Expr Op Expr`。
 
 U26 标准规定了下列三元运算符:
 
@@ -172,7 +172,7 @@ U26 标准规定了下列三元运算符:
 
 ### V. 分隔符
 
-**分隔符, Delimiter**, 简写为 Deli, 是 U 语言中用于表示语句或表达式之间的界限的词法元素。一般情况下, 下列分隔符起到不同的分隔作用:
+**分隔符, Delimiter**, 简写为 `Deli`, 是 U 语言中用于表示语句或表达式之间的界限的词法元素。一般情况下, 下列分隔符起到不同的分隔作用:
 
 | 分隔符 | 分隔对象或作用 |
 | :--- | :--- |
@@ -185,11 +185,11 @@ U26 标准规定了下列三元运算符:
 
 ### VI. 字面量
 
-**字面量, Literal**, 简写为 Lit, 是 U 语言中表达编译期确定的具体数据的词法元素。U 语言有下列字面量类型:
+**字面量, Literal**, 简写为 `Lit`, 是 U 语言中表达编译期确定的具体数据的词法元素。U 语言有下列字面量类型:
 
 #### 1. 整数字面量
 
-**整数字面量, Integer Literal**, 简写为 Lit.Int, 描述一个整数数据, 可被以 `uint` 或 `int` 为前缀的类型 (见 [类型名](#iii-类型名) 章节) 接收。
+**整数字面量, Integer Literal**, 简写为 `Lit.Int`, 描述一个整数数据, 可被以 `uint` 或 `int` 为前缀的类型 (见 [类型名](#iii-类型名) 章节) 接收。
 
 在 U 语言中, 可以通过 2 进制、8 进制、10 进制或 16 进制书写整数字面量。不同进制写法具有不同词法特征, 如下表:
 
@@ -204,7 +204,7 @@ U26 标准规定了下列三元运算符:
 
 #### 2. 浮点数字面量
 
-**浮点数字面量, Floating-Point Literal**, 简写为 Lit.Float, 描述一个浮点数数据, 可被 `float32`, `float64` 接收。
+**浮点数字面量, Floating-Point Literal**, 简写为 `Lit.Float`, 描述一个浮点数数据, 可被 `float32`, `float64` 接收。
 
 浮点数字面量总是按照十进制表示, 中间有一个半角句点作小数点。`3.141592` 和 `0.125` 是合法的浮点数字面量。
 
@@ -217,7 +217,7 @@ U26 标准规定了下列三元运算符:
 
 #### 3. 字符字面量
 
-**字符字面量, Character Literal**, 简写为 Lit.Char, 描述一个字符数据, 可被 `char`, `rune` 接收, 或被这两个类型的底层类型 `uint8`, `uint32` 接收。
+**字符字面量, Character Literal**, 简写为 `Lit.Char`, 描述一个字符数据, 可被 `char`, `rune` 接收, 或被这两个类型的底层类型 `uint8`, `uint32` 接收。
 
 字符字面量由单引号包裹。比如:
 
@@ -235,7 +235,7 @@ U26 标准规定了下列三元运算符:
 
 #### 4. 字符串字面量
 
-**字符串字面量, String Literal**, 简写为 Lit.Str, 描述一个字符串数据, 可被 `string`, `string32` 接收。
+**字符串字面量, String Literal**, 简写为 `Lit.Str`, 描述一个字符串数据, 可被 `string`, `string32` 接收。
 
 字符串字面量使用双引号包裹, 比如:
 
@@ -336,7 +336,7 @@ urf"(Project Information:
 
 ### VII. 注释
 
-**注释, Comment**, 简写为 Com, 是 U 语言程序中为特定代码添加注解的词法元素。一般情况下, 注释被编译器直接忽略计入空白字符, 除非特殊场景 (IDE 插件解析从注释读取临时配置) 将注释记为 Token。注释不影响程序的运行行为。
+**注释, Comment**, 简写为 `Com`, 是 U 语言程序中为特定代码添加注解的词法元素。一般情况下, 注释被编译器直接忽略计入空白字符, 除非特殊场景 (IDE 插件解析从注释读取临时配置) 将注释记为 Token。注释不影响程序的运行行为。
 
 U 语言支持两种注释写法:
 
@@ -358,11 +358,11 @@ U 语言支持两种注释写法:
 
 ### I. 表达式
 
-**表达式, Expression**, 简写为 Expr, 是 U 语言中表示值或运算的语法结构。表达式可以包含其他子表达式, 比如调用表达式中的实参和运算表达式中的操作数。
+**表达式, Expression**, 简写为 `Expr`, 是 U 语言中表示值或运算的语法结构。表达式可以包含其他子表达式, 比如调用表达式中的实参和运算表达式中的操作数。
 
 #### 1. 字面量表达式
 
-**字面量表达式, Literal Expression**, 简写为 Expr.Lit, 由一个 [字面量](#vi-字面量) 构成, 直接表示源代码中写出的值。字面量表达式所指的数据在编译期就可以确定。
+**字面量表达式, Literal Expression**, 简写为 `Expr.Lit`, 由一个 [字面量](#vi-字面量) 构成, 直接表示源代码中写出的值。字面量表达式所指的数据在编译期就可以确定。
 
 ```ul
 3.141592
@@ -374,7 +374,7 @@ U 语言支持两种注释写法:
 
 #### 2. 标识符表达式
 
-**标识符表达式, Identifier Expression**, 简写为 Expr.Id, 由一个标识符构成, 用来指代该名称所对应的实体。标识符表达式可以指代变量、常量、结构体和函数等。
+**标识符表达式, Identifier Expression**, 简写为 `Expr.Id`, 由一个标识符构成, 用来指代该名称所对应的实体。标识符表达式可以指代变量、常量、结构体和函数等。
 
 ```ul
 function
@@ -385,11 +385,11 @@ VkInstance
 
 #### 3. 原子表达式
 
-**原子表达式, Atom Expression**, 简写为 Expr.Atom, 是组成更复杂表达式的基本形式。字面量表达式和标识符表达式都是原子表达式。
+**原子表达式, Atom Expression**, 简写为 `Expr.Atom`, 是组成更复杂表达式的基本形式。字面量表达式和标识符表达式都是原子表达式。
 
 #### 4. 运算符表达式
 
-**运算符表达式, Operator Expression**, 简写为 Expr.Op, 由运算符和操作数组成。操作数可以是其他表达式, 不同运算类型的运算表达式产生不同类型的值。也有可能不产生值。
+**运算符表达式, Operator Expression**, 简写为 `Expr.Op`, 由运算符和操作数组成。操作数可以是其他表达式, 不同运算类型的运算表达式产生不同类型的值。也有可能不产生值。
 
 ##### 4.1. 四则运算
 
@@ -445,7 +445,7 @@ VkInstance
 
 #### 5. 调用表达式
 
-**调用表达式, Call Expression**, 简写为 Expr.Call, 由被调用部分和紧随其后的实参列表组成。实参列表用圆括号包围, 可以为空。
+**调用表达式, Call Expression**, 简写为 `Expr.Call`, 由被调用部分和紧随其后的实参列表组成。实参列表用圆括号包围, 可以为空。
 
 | 调用表达式 | 含义 |
 | :--- | :--- |
@@ -454,7 +454,7 @@ VkInstance
 
 #### 6. 便携式函数表达式
 
-**便携式函数表达式, Portable Function Expression**, 简写为 Expr.PtFunc, 由 `fn`、形参列表和作为函数体的块语句组成。形参列表之后可以写返回类型标注。
+**便携式函数表达式, Portable Function Expression**, 简写为 `Expr.PtFunc`, 由 `fn`、形参列表和作为函数体的块语句组成。形参列表之后可以写返回类型标注。
 
 ```ul
 fn(arg: int32): int32 {
@@ -466,15 +466,15 @@ fn(arg: int32): int32 {
 
 ### II. 语句
 
-**语句, Statement**, 简写为 Stmt, 是组成程序的语言元素。
+**语句, Statement**, 简写为 `Stmt`, 是组成程序的语言元素。
 
 #### 1. 块语句
 
-**块语句, Block Statement**, 简写为 Stmt.Block, 是一个可包含其他子语句的语句。使用花括号 `{` `}` 表示一个块语句, 并在块语句内可以写入包括块语句在内的其它语句。
+**块语句, Block Statement**, 简写为 `Stmt.Block`, 是一个可包含其他子语句的语句。使用花括号 `{` `}` 表示一个块语句, 并在块语句内可以写入包括块语句在内的其它语句。
 
 #### 2. 表达式语句
 
-**表达式语句, Expression Statement**, 简写为 Stmt.Expr, 由一个表达式和结尾的分号构成, 比如一次单独的函数调用。
+**表达式语句, Expression Statement**, 简写为 `Stmt.Expr`, 由一个表达式和结尾的分号构成, 比如一次单独的函数调用。
 
 | 示例 | 语句类型 | 表达式结构 |
 | :--- | :--- | :--- |
@@ -484,11 +484,11 @@ fn(arg: int32): int32 {
 
 #### 3. 声明语句
 
-**声明语句, Declaration Statement**, 简写为 Stmt.Decl, 用于在程序中引入名称, 并给出该名称对应的类型或签名。声明和赋值可以同时进行, 此时赋值操作成为初始化运算, 一个包含初始化运算的声明语句为定义语句。详见 [定义语句](#4-定义语句)。
+**声明语句, Declaration Statement**, 简写为 `Stmt.Decl`, 用于在程序中引入名称, 并给出该名称对应的类型或签名。声明和赋值可以同时进行, 此时赋值操作成为初始化运算, 一个包含初始化运算的声明语句为定义语句。详见 [定义语句](#4-定义语句)。
 
 ##### 3.1. 数据声明
 
-**数据声明, Data Declaration**, 简写为 Stmt.Decl.Data。一般数据声明语句采用 `Id: Type;` 的形式。
+**数据声明, Data Declaration**, 简写为 `Stmt.Decl.Data`。一般数据声明语句采用 `Id: Type;` 的形式。
 
 ```ul
 age: int32;
@@ -534,7 +534,7 @@ name: string;
 
 ##### 3.2. 函数声明
 
-**函数声明, Function Declaration**, 简写为 Stmt.Decl.Func。通用函数声明采用 `fn Id(Args...): Type;` 的形式, 形参可以只写类型。无返回值时可以省略 `: Type`。
+**函数声明, Function Declaration**, 简写为 `Stmt.Decl.Func`。通用函数声明采用 `fn Id(Args...): Type;` 的形式, 形参可以只写类型。无返回值时可以省略 `: Type`。
 
 ```ul
 fn ask_for_age(): int32;
@@ -557,7 +557,7 @@ fn sum(int32, int32): int32;
 
 ##### 3.3. 便携式函数声明
 
-**便携式函数声明, Portable Function Declaration**, 简写为 Stmt.Decl.PtFunc。便携式函数值可以存入函数类型的数据, 比如 `portable: (fn(int32): int32);`。函数类型的形参列表只写类型, 无返回值时可以省略返回类型标注。
+**便携式函数声明, Portable Function Declaration**, 简写为 `Stmt.Decl.PtFunc`。便携式函数值可以存入函数类型的数据, 比如 `portable: (fn(int32): int32);`。函数类型的形参列表只写类型, 无返回值时可以省略返回类型标注。
 
 ```ul
 portable: (fn(int32): int32);
@@ -568,7 +568,7 @@ notify: fn();
 
 ##### 3.4. 结构体声明
 
-**结构体声明, Structure Declaration**, 简写为 Stmt.Decl.Struct。结构体前置声明采用 `struct Id;` 的形式, 成员列表在结构体定义中给出。
+**结构体声明, Structure Declaration**, 简写为 `Stmt.Decl.Struct`。结构体前置声明采用 `struct Id;` 的形式, 成员列表在结构体定义中给出。
 
 ```ul
 struct Position;
@@ -576,7 +576,7 @@ struct Position;
 
 ##### 3.5. 结构体方法声明
 
-**结构体方法声明, Structure Method Declaration**, 简写为 Stmt.Decl.Method。结构体方法在结构体体外声明, 采用 `fn Id(Args...) in Structure: Type;` 的形式。结构体方法是属于结构体的特殊函数, 其他写法和函数写法完全一致。
+**结构体方法声明, Structure Method Declaration**, 简写为 `Stmt.Decl.Method`。结构体方法在结构体体外声明, 采用 `fn Id(Args...) in Structure: Type;` 的形式。结构体方法是属于结构体的特殊函数, 其他写法和函数写法完全一致。
 
 ```ul
 fn origin_index() in Position: int32;
@@ -584,11 +584,11 @@ fn origin_index() in Position: int32;
 
 #### 4. 定义语句
 
-**定义语句, Definition Statement**, 简写为 Stmt.Def, 是同时完成声明和初始化操作的语句类型。定义语句可以定义变量、常量、结构体、函数等。
+**定义语句, Definition Statement**, 简写为 `Stmt.Def`, 是同时完成声明和初始化操作的语句类型。定义语句可以定义变量、常量、结构体、函数等。
 
 ##### 4.1. 数据定义
 
-**数据定义, Data Definition**, 简写为 Stmt.Def.Data。一般数据定义语句采用 `Id: Type = Expr;` 的形式, 其中 `Expr` 为初始化式。数据定义语句的声明部分和 [数据声明](#31-数据声明) 章节讲述的一致, 将声明语句末尾的分号改为赋值运算符 `=` 和初始化式。
+**数据定义, Data Definition**, 简写为 `Stmt.Def.Data`。一般数据定义语句采用 `Id: Type = Expr;` 的形式, 其中 `Expr` 为初始化式。数据定义语句的声明部分和 [数据声明](#31-数据声明) 章节讲述的一致, 将声明语句末尾的分号改为赋值运算符 `=` 和初始化式。
 
 ```ul
 age: int32 = 17;
@@ -606,7 +606,7 @@ message32: string32 = u"你好";
 
 ##### 4.2. 函数定义
 
-**函数定义, Function Definition**, 简写为 Stmt.Def.Func。通用函数定义采用 `fn Id(Args...): Type { ... }` 的形式, 每个形参都写作 `Id: Type`, 同数据声明写法一致。
+**函数定义, Function Definition**, 简写为 `Stmt.Def.Func`。通用函数定义采用 `fn Id(Args...): Type { ... }` 的形式, 每个形参都写作 `Id: Type`, 同数据声明写法一致。
 
 ```ul
 fn find_char_in_string(target: char, from: string): bool {
@@ -623,7 +623,7 @@ fn find_char_in_string(target: char, from: string): bool {
 
 ##### 4.3. 便携式函数定义
 
-**便携式函数定义, Portable Function Definition**, 简写为 Stmt.Def.PtFunc。便携式函数表达式可以初始化函数类型的数据, 也可以在数据声明后通过 `Id = Expr;` 赋值。
+**便携式函数定义, Portable Function Definition**, 简写为 `Stmt.Def.PtFunc`。便携式函数表达式可以初始化函数类型的数据, 也可以在数据声明后通过 `Id = Expr;` 赋值。
 
 ```ul
 portable: (fn(int32): int32);
@@ -656,7 +656,7 @@ result: int32 = apply(32, operation);
 
 ##### 4.4. 结构体定义
 
-**结构体定义, Structure Definition**, 简写为 Stmt.Def.Struct。结构体定义采用 `struct Id { ... };` 的形式, 花括号内只写数据成员, 其中可以包含函数类型的数据。
+**结构体定义, Structure Definition**, 简写为 `Stmt.Def.Struct`。结构体定义采用 `struct Id { ... };` 的形式, 花括号内只写数据成员, 其中可以包含函数类型的数据。
 
 数据成员可以在声明时提供初始化式。下面的 `adjust` 是保存便携式函数值的数据成员。
 
@@ -680,7 +680,7 @@ position = {none, 17, none};
 
 ##### 4.5. 结构体方法定义
 
-**结构体方法定义, Structure Method Definition**, 简写为 Stmt.Def.Method。结构体方法在结构体体外定义, 采用 `fn Id(Args...) in 结构体名: Type { ... }` 的形式。
+**结构体方法定义, Structure Method Definition**, 简写为 `Stmt.Def.Method`。结构体方法在结构体体外定义, 采用 `fn Id(Args...) in 结构体名: Type { ... }` 的形式。
 
 ```ul
 fn origin_index() in Position: int32 {
@@ -690,7 +690,7 @@ fn origin_index() in Position: int32 {
 
 #### 5. 条件控制语句
 
-**条件控制语句, Branching Statement**, 简写为 Stmt.Branch, 根据条件或匹配结果选择要执行的分支。
+**条件控制语句, Branching Statement**, 简写为 `Stmt.Branch`, 根据条件或匹配结果选择要执行的分支。
 
 ##### 5.1. if-else 语句
 
@@ -756,7 +756,7 @@ age >= 18 ? "adult" : "teen"
 
 #### 6. 循环语句
 
-**循环语句, Loop Statement**, 简写为 Stmt.Loop, 用于反复执行循环体。循环体可以是一个块或一条语句。
+**循环语句, Loop Statement**, 简写为 `Stmt.Loop`, 用于反复执行循环体。循环体可以是一个块或一条语句。
 
 ##### 6.1. for 语句
 
@@ -806,11 +806,11 @@ while ready do();
 
 #### 7. 跳转语句
 
-**跳转语句, Jump Statement**, 简写为 Stmt.Jump, 用于结束循环、进入下一次迭代或返回调用方。
+**跳转语句, Jump Statement**, 简写为 `Stmt.Jump`, 用于结束循环、进入下一次迭代或返回调用方。
 
 ##### 7.1. break 语句
 
-**break 语句, Break Statement**, 简写为 Stmt.Jump.Brk。`break;` 写在 `while` 或 `for` 循环体的块语句内, 用于结束当前循环。
+**break 语句, Break Statement**, 简写为 `Stmt.Jump.Brk`。`break;` 写在 `while` 或 `for` 循环体的块语句内, 用于结束当前循环。
 
 ```ul
 while true {
@@ -824,7 +824,7 @@ while true {
 
 ##### 7.2. continue 语句
 
-**continue 语句, Continue Statement**, 简写为 Stmt.Jump.Cont。`continue;` 可以写在循环体内, 用于结束本次迭代。
+**continue 语句, Continue Statement**, 简写为 `Stmt.Jump.Cont`。`continue;` 可以写在循环体内, 用于结束本次迭代。
 
 ```ul
 for item in items {
@@ -840,7 +840,7 @@ for item in items {
 
 ##### 7.3. return 语句
 
-**return 语句, Return Statement**, 简写为 Stmt.Jump.Ret。有返回值的函数或方法使用 `return Expr;`。无返回值的函数或方法可以写 `return;`。
+**return 语句, Return Statement**, 简写为 `Stmt.Jump.Ret`。有返回值的函数或方法使用 `return Expr;`。无返回值的函数或方法可以写 `return;`。
 
 ```ul
 fn print_when_ready(ready: bool) {
@@ -853,7 +853,7 @@ fn print_when_ready(ready: bool) {
 
 #### 8. 错误处理语句
 
-**错误处理语句, Error Handling Statement**, 简写为 Stmt.Error, 包括报告错误的 `report` 语句和处理错误报告的 `catch` 补救语句。
+**错误处理语句, Error Handling Statement**, 简写为 `Stmt.Error`, 包括报告错误的 `report` 语句和处理错误报告的 `catch` 补救语句。
 
 ##### 8.1. report 语句
 
@@ -867,7 +867,7 @@ fn read() {
 
 ##### 8.2. catch 补救语句
 
-`catch` 语句由错误值绑定说明、监听表达式 (ListenExpr) 和作为补救措施的块语句组成。监听表达式可以是调用表达式 (Expr.Call), 也可以是包含调用表达式的运算表达式 (Expr.Op)。
+`catch` 语句由错误值绑定说明、监听表达式 (`ListenExpr`) 和作为补救措施的块语句组成。监听表达式可以是调用表达式 (`Expr.Call`), 也可以是包含调用表达式的运算表达式 (`Expr.Op`)。
 
 ```
 catch Id: Type in ListenExpr Stmt.Block
